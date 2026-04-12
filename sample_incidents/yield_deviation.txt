@@ -1,0 +1,8 @@
+Site: Bengaluru Plant 3 (BCN-P3)
+Product: Insulin Glargine Biosimilar (Lantus®-similar)
+Batch ID: BLR-IG-2024-0882
+Deviation Type: Process Yield OOS
+Incident Date: 2024-11-14
+
+Observation:
+Batch BLR-IG-2024-0882 of Insulin Glargine biosimilar completed fermentation with a recorded yield of 72.4% (g recombinant insulin / L culture broth), against a minimum specification of 86.2%. This represents a 13.8% absolute shortfall, the largest single-batch deviation recorded in FY2024. MES trending data shows that dissolved oxygen (DO) saturation dropped to 12% during the exponential growth phase (hours 48–72), well below the 30% control threshold. Post-run inspection of the bioreactor revealed that the pH-DO cascade control interlock was in the disabled state. A preventive maintenance work order (WO-BCN-2024-1143) for the DO probe assembly was completed the day prior to batch start. No product has been released; batch is currently quarantined pending QA disposition.

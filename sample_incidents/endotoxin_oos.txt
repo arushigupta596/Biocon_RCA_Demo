@@ -1,0 +1,8 @@
+Site: Hyderabad Biologics Facility (HYD-BIO)
+Product: Trastuzumab Drug Substance (Herceptin® biosimilar)
+Batch ID: HYD-TRZ-2024-0341
+Deviation Type: Endotoxin OOS — Drug Substance Release Test
+Incident Date: 2024-10-03
+
+Observation:
+Endotoxin testing of Trastuzumab drug substance batch HYD-TRZ-2024-0341 returned a result of 4.8 EU/mg, which is 4.8× above the internal release limit of 1.0 EU/mg and exceeds the ICH Q6B guideline threshold. The LAL kinetic turbidimetric assay (Lot KT-2024-0918) was performed by the QC laboratory on 2024-10-02. A repeat test on retained sample confirmed the result: 4.7 EU/mg. Upstream investigation indicates a potential contamination event during the Protein A affinity chromatography step; the resin (Lot PA-RES-0047) had completed 142 cycles against a validated lifetime of 150 cycles, and the post-use sanitisation hold time on 2024-09-28 was recorded as 45 minutes against a required minimum of 60 minutes. No downstream product has been processed. The batch is under quarantine and patient supply risk assessment is in progress.

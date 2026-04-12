@@ -1,0 +1,8 @@
+Site: Mumbai Distribution Depot (MUM-DD1)
+Product: Pegfilgrastim Finished Drug Product (Neulasta® biosimilar), pre-filled syringes
+Batch ID: MUM-PEG-2024-1107
+Deviation Type: Cold Chain Temperature Excursion during Storage
+Incident Date: 2024-12-01
+
+Observation:
+Continuous temperature monitoring data logger (Logger ID: TL-MUM-0047) recorded an excursion in Cold Room CR-04 between 2024-11-30 22:14 UTC and 2024-12-01 02:31 UTC (duration: 4 hours 17 minutes). During this window, the ambient temperature reached a peak of +9.2°C, against a required storage range of +2°C to +8°C. Batch MUM-PEG-2024-1107 (1,200 pre-filled syringes, 6 mg/0.6 mL) was stored in CR-04 throughout the excursion. The automated alarm system did not trigger an alert to on-call staff. Maintenance logs show that the compressor unit for CR-04 underwent a refrigerant recharge on 2024-11-30 at 18:00 UTC; a 4-hour post-maintenance temperature stabilisation was not verified before product was returned to the room. Stability data for Pegfilgrastim indicates that excursions above +8°C for more than 3 hours may accelerate aggregation. Patient safety risk assessment and accelerated stability testing of retained samples are ongoing.
