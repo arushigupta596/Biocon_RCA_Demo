@@ -1,5 +1,7 @@
 """PDF report generator for CAPA Intelligence — professional, monochrome output."""
 
+from __future__ import annotations
+
 import io
 import re
 from datetime import datetime, timezone
