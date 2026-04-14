@@ -9,6 +9,7 @@ from dotenv import load_dotenv
 from agent import run_rca, run_capa
 from audit import lock_record, export_json
 from models import MODELS, DEFAULT_MODEL_NAME
+from pdf_report import generate_pdf
 
 load_dotenv()
 
@@ -547,12 +548,14 @@ if st.session_state.audit_trail:
         st.dataframe(trail_display, use_container_width=True)
 
         latest = st.session_state.audit_trail[-1]
+
         st.download_button(
             label="Download CAPA Record (.json)",
             data=export_json(latest),
             file_name=f"{latest['incident_id']}_capa_record.json",
             mime="application/json",
         )
+
         st.markdown("""
         <div style="font-size:0.72rem; color:#14518B; margin-top:0.5rem;">
           SHA-256 hash covers all content fields prior to the <code>locked</code> flag.
@@ -560,6 +563,26 @@ if st.session_state.audit_trail:
           satisfying 21 CFR Part 11 §11.10(e) and EU GMP Annex 11 §9 integrity requirements.
         </div>
         """, unsafe_allow_html=True)
+
+    # PDF download sits outside / below the expander
+    latest = st.session_state.audit_trail[-1]
+    st.markdown('<hr class="biocon-divider">', unsafe_allow_html=True)
+    pdf_bytes = generate_pdf(
+        incident_id=latest["incident_id"],
+        site=latest["site"],
+        product=latest["product"],
+        model=latest["model"],
+        rca_text=latest["rca_output"],
+        capa_text=latest["capa_output"],
+        timestamp_utc=latest["timestamp_utc"],
+        sha256=latest["sha256"],
+    )
+    st.download_button(
+        label="Download PDF Report",
+        data=pdf_bytes,
+        file_name=f"{latest['incident_id']}_capa_report.pdf",
+        mime="application/pdf",
+    )
 
 # ── Footer ────────────────────────────────────────────────────────────────────
 st.markdown("""
