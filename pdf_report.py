@@ -327,7 +327,7 @@ def _cover_page(
     elements = []
     elements.append(Spacer(1, 18 * mm))
     elements.append(_para("CAPA Intelligence", "cover_title"))
-    elements.append(_para("Root Cause Analysis &amp; Corrective Action Report", "cover_sub"))
+    elements.append(_para("Root Cause Analysis & Corrective Action Report", "cover_sub"))
     elements.append(Spacer(1, 6 * mm))
     elements.append(_hr())
     elements.append(Spacer(1, 4 * mm))
@@ -426,6 +426,20 @@ def generate_pdf(
         subject="Root Cause Analysis and CAPA Action Plan",
     )
 
+    def _strip_top_headings(text: str) -> str:
+        """Remove leading H1/H2 lines that duplicate the section titles we add ourselves."""
+        lines = text.splitlines()
+        out = []
+        skip_patterns = re.compile(
+            r"^#{1,2}\s*(root cause analysis|rca report|capa action plan|capa plan)\b",
+            re.IGNORECASE,
+        )
+        for line in lines:
+            if skip_patterns.match(line.strip()):
+                continue
+            out.append(line)
+        return "\n".join(out)
+
     story = []
 
     # Cover page
@@ -437,13 +451,13 @@ def generate_pdf(
     # RCA section
     story.append(_para("Root Cause Analysis", "h1"))
     story.append(_hr())
-    story.extend(_parse_markdown(rca_text))
+    story.extend(_parse_markdown(_strip_top_headings(rca_text)))
 
     # CAPA section
     story.append(Spacer(1, 6 * mm))
     story.append(_para("CAPA Action Plan", "h1"))
     story.append(_hr())
-    story.extend(_parse_markdown(capa_text))
+    story.extend(_parse_markdown(_strip_top_headings(capa_text)))
 
     doc.build(story, onFirstPage=_add_page_number, onLaterPages=_add_page_number)
     return buf.getvalue()
